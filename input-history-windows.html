@@ -34,12 +34,16 @@
 
       /* #region History List */
 
-      div#history {
+      ul#history {
         list-style-type: none;
       }
 
+      ul#history>li {
+        display: inline;
+      }
+
       /* Animation for hide timeout */
-      p.key-combination.hidden {
+      li.key-combination.hidden {
         opacity: 0;
 
         transition-property: opacity;
@@ -47,17 +51,17 @@
         transition-duration: 1s;
       }
 
-      * + p.key-combination {
+      * + li.key-combination {
         /* Vertical distance between combinations */
         margin-top: 0.5em;
       }
 
-      p.key-combination > * {
+      li.key-combination > * {
         /* Centralize keys and elements in them */
         vertical-align: middle;
       }
 
-      p.key-combination > .separator {
+      li.key-combination > .separator {
         display: inline-block;
 
         /* Spacing on sides of separator */
@@ -329,7 +333,7 @@
     </div>
     <!-- #endregion -->
 
-    <div id="history"></div>
+    <ul id="history"></ul>
   </body>
 
   <script>
@@ -755,7 +759,7 @@
      * Gets a {Set} of keycodes, wraps each item in span.key, joins them by
      * a + (separator), and adds a repeat counter.
      *
-     * @returns {HTMLElement} <p> element of key combination
+     * @returns {HTMLElement} <li> element of key combination
      */
     function getKeyCombinationElement() {
       try {
@@ -781,7 +785,7 @@
             createElementWithClass("span", _repeatCount, ["repeat"]).outerHTML;
         }
 
-        return createElementWithClass("p", innerHTMLOfKeyCombination, [
+        return createElementWithClass("li", innerHTMLOfKeyCombination, [
           "key-combination",
         ]);
       } catch (e) {
