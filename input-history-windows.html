@@ -860,7 +860,7 @@
     }
 
     // History
-    var _historyDiv = document.getElementById("history");
+    var _historyList = document.getElementById("history");
     var _historyCurrentlyPressed = new Set();
     var _historyLastPressed = new Set();
     var _hideLastTimeoutID = undefined;
@@ -926,8 +926,8 @@
 
     function getLatestChild() {
       return HISTORY_TOP_ALIGN
-        ? _historyDiv.firstElementChild
-        : _historyDiv.lastElementChild;
+        ? _historyList.firstElementChild
+        : _historyList.lastElementChild;
     }
 
     function updateUI(keycode, isPressing) {
@@ -974,9 +974,9 @@
           startRemovingLast();
 
           if (HISTORY_TOP_ALIGN) {
-            _historyDiv.insertBefore(combinationElement, _historyDiv.firstChild);
+            _historyList.insertBefore(combinationElement, _historyList.firstChild);
           } else {
-            _historyDiv.appendChild(combinationElement);
+            _historyList.appendChild(combinationElement);
 
             // Scroll down
             scrollTo({
@@ -985,11 +985,11 @@
           }
 
           // Remove oldest element
-          if (_historyDiv.children.length > HISTORY_MAX) {
+          if (_historyList.children.length > HISTORY_MAX) {
             if (HISTORY_TOP_ALIGN)
-              _historyDiv.lastElementChild.remove();
+              _historyList.lastElementChild.remove();
             else
-              _historyDiv.firstElementChild.remove();
+              _historyList.firstElementChild.remove();
           }
         }
         // Starting key combination or repeating previous ones: set last item text
