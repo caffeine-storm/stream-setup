@@ -38,13 +38,14 @@
         list-style-type: none;
       }
 
-			div#history>p {
-				display: inline;
-			}
-
       /* Animation for hide timeout */
       p.key-combination.hidden {
+        opacity: 0;
 
+        transition-property: opacity;
+        transition-timing-function: ease-out;
+        transition-duration: 1s;
+      }
 
       * + p.key-combination {
         /* Vertical distance between combinations */
