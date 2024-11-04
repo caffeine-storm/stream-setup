@@ -737,7 +737,12 @@
 
     function modifierIsPressed(keycodeSet) {
       console.log(keycodeSet);
-      return keycodeSet.intersection(modifierKeyCodes).size !=0;
+      for (const keyCode of keycodeSet.values()) {
+        if (modifierKeyCodes.has(keyCode)) {
+          return true;
+        }
+      }
+      return false;
     }
 
     /**
