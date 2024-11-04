@@ -950,9 +950,9 @@
         // to detect repetition and combinations
 
         var wasEmpty = _historyCurrentlyPressed.size == 0;
-        var wasSameKeys = compareSets(_historyCurrentlyPressed, _historyLastPressed);
+        var wasSameKeys = isEqualSets(_historyCurrentlyPressed, _historyLastPressed);
         _historyCurrentlyPressed.add(keycode); // Register new pressed key
-        var isRepeated = compareSets(_historyCurrentlyPressed, _historyLastPressed);
+        var isRepeated = isEqualSets(_historyCurrentlyPressed, _historyLastPressed);
 
         // Are we adding to previously pressed keys?
         // _repeatCount is used to add a new grouping of keys if the previously pressed
@@ -1052,7 +1052,7 @@
       }, REPEAT_TIMEOUT);
     }
 
-    function compareSets(a, b) { 
+    function isEqualSets(a, b) {
       return a.size === b.size &&
       [...a].every((elem) => b.has(elem));
     }
