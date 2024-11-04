@@ -724,6 +724,22 @@
 
     // #endregion
 
+    const modifierKeyCodes = new Set();
+    modifierKeyCodes.add(0x002a);
+    modifierKeyCodes.add(0x0036);
+    modifierKeyCodes.add(0x001d);
+    modifierKeyCodes.add(0x0e1d);
+    modifierKeyCodes.add(0x0038);
+    modifierKeyCodes.add(0x0e38);
+    modifierKeyCodes.add(0x0e5b);
+    modifierKeyCodes.add(0x0e5c);
+    modifierKeyCodes.add(0x0e5d);
+
+    function modifierIsPressed(keycodeSet) {
+      console.log(keycodeSet);
+      return keycodeSet.intersection(modifierKeyCodes).size !=0;
+    }
+
     /**
      * This will either return an HTML string (icon)
      * Or a plain string (libuiohook key name)
@@ -781,9 +797,15 @@
             (innerHTML) =>
               createElementWithClass("span", innerHTML, ["key"]).outerHTML
           )
-          .join(
-            createElementWithClass("span", SEPARATOR, ["separator"]).outerHTML
-          );
+        if (!ONLY_ADD_SEPARATOR_FOR_MODIFIERS || modifierIsPressed(_historyCurrentlyPressed)) {
+          innerHTMLOfKeyCombination = innerHTMLOfKeyCombination
+            .join(
+              createElementWithClass("span", SEPARATOR, ["separator"]).outerHTML
+            );
+        } else {
+          innerHTMLOfKeyCombination = innerHTMLOfKeyCombination
+            .join("");
+        }
 
         // Display repetition counter if 2 or higher
         if (_repeatCount > 1) {
@@ -841,6 +863,12 @@
      * @type {string}
      */
     var SEPARATOR = "+";
+    /**
+     * When true, separtors only get insterted if one of ctrl, shift, etc are
+     * involved.
+     * @type {boolean}
+     */
+    var ONLY_ADD_SEPARATOR_FOR_MODIFIERS = true;
     /**
      * When true, only display initial press of a key. I.e., held keys won't
      * be added to history as multiple presses.
