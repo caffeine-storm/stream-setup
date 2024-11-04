@@ -853,6 +853,11 @@
      * @type {number}
      */
     var REPEAT_TIMEOUT = 1500;
+    /**
+     * When true, include clicks and scrolls in input history
+     * @type {boolean}
+     */
+    var SHOW_MOUSE_INPUT = false;
 
     // #endregion
 
@@ -878,6 +883,10 @@
 
       // Interpret mouse events
       if (data.event_type.startsWith("mouse")) {
+        if (!SHOW_MOUSE_INPUT) {
+          return;
+        }
+
         // Ignore mouse movement and click events
         if (
           data.event_type === "mouse_moved" ||
