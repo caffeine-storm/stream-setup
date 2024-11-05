@@ -2,6 +2,7 @@ note:
 	- can start a debug copy of the keystrokes widget in chrome by opening file://wsl$/Ubuntu/path/to/keystrokes/input-history-windows.html
 
 todo:
+- need an easy way to hide/unhide/purge (e.g. hiding sudo password)
 - bouncing 'j/k' should just flash the existing 'j' and 'k' elements
 - 'shift+5' should be '%'
 - bug: spam >> wait for clear >> input-is-ignored >> spam >> input-is-recognized
