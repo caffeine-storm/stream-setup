@@ -2,5 +2,7 @@ note:
 	- can start a debug copy of the keystrokes widget in chrome by opening file://wsl$/Ubuntu/path/to/keystrokes/input-history-windows.html
 
 todo:
+- sometimes keystroke things get disappeared when smashing modifiers...
+	- (ctrl-h -> ctrl-l)+    enough times to reach left-hand extent, ==> T_T
 - bouncing 'j/k' should just flash the existing 'j' and 'k' elements
 - 'shift+5' should be '%'
