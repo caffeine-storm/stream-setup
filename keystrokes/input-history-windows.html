@@ -136,6 +136,19 @@
       <!-- Copy SVG Code -->
 
       <!-- #region Svg sources used multiple times. Automatically hidden -->
+
+      <!-- Space -->
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol
+          id="icon-space"
+          viewBox="0 0 800 600"
+        >
+        <g>
+          <rect id="svg_4" height="52" width="600" y="432" x="117" stroke="#ffffff" fill="#ffffff"></rect>
+          <rect id="svg_4" height="160" width="52" y="325" x="117" stroke="#ffffff" fill="#ffffff"></rect>
+          <rect id="svg_4" height="160" width="52" y="325" x="666" stroke="#ffffff" fill="#ffffff"></rect>
+        </g>
+      </svg>
       <!-- Arrow Left -->
       <svg xmlns="http://www.w3.org/2000/svg">
         <symbol
@@ -186,6 +199,12 @@
         </symbol>
       </svg>
       <!-- #endregion -->
+
+      <svg
+        id="SVG_VC_SPACE"
+      >
+        <use href="#icon-space"></use>
+      </svg>
 
       <!-- Windows Key - VC_META_L / VC_META_R -->
       <svg
@@ -442,7 +461,7 @@
       0x0034: ["VC_PERIOD", "."], // '.'
       0x0035: ["VC_SLASH", "/"], // '/'
 
-      0x0039: ["VC_SPACE", "SPACE"],
+      0x0039: ["VC_SPACE", "_"],
       //  Alphanumeric Zone End
 
       0x0e37: ["VC_PRINTSCREEN", "PrtSc"],
@@ -642,6 +661,7 @@
       0x0e5c: document.getElementById("SVG_VC_META"), // VC_META_R Windows or Command Key
 
       // Arrow Keys
+
       0x0e48: document.getElementById("SVG_VC_UP"), // ARROW UP
       0x0e4b: document.getElementById("SVG_VC_LEFT"), // ARROW LEFT
       0x0e4d: document.getElementById("SVG_VC_RIGHT"), // ARROW RIGHT
@@ -660,6 +680,7 @@
       0x001c: document.getElementById("SVG_VC_ENTER"),
       0x0e1c: document.getElementById("SVG_VC_KP_ENTER"),
 
+      0x0039: document.getElementById("SVG_VC_SPACE"),
       0x000e: document.getElementById("SVG_VC_BACKSPACE"),
     };
 
