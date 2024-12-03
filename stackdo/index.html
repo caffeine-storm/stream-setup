@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="refresh" content="30">
 		<style>
 			* {
 				color: white;
@@ -8,15 +9,27 @@
 			}
 			ul {
 				width: 240px;
+				list-style: none;
+			}
+			li {
+				background: #ffffff20;
+				border: 2px solid #00ff0060;
+			}
+			todo {
+				display: block;
+				width: 100%;
+				text-align: end;
+				margin-bottom: -15px;
 			}
 		</style>
 	</head>
 	<body>
+		<todo>TODO</todo>
 		<ul>
-			<li>need a Dockerfile</li>
-			<li>don't want all that jazz; use a podman container</li>
-			<li>need all the build deps to build mesa</li>
-			<li>need to build mesa under <a href=""https://github.com/rizsotto/Bear>`bear`</a></li>
+			<li>docker-compose.yml for running?</li>
+			<li>Dockerfile has more packages in apt-get install than needed; trim</li>
+			<li>script up jq'ing builddir/compile_commands.json into
+				./compile_commands.json</li>
 			<li>need go-to-def and other YCM goodness to navigate the code</li>
 			<li>should be in the <a href="https://gitlab.freedesktop.org/mesa/mesa/-/tree/main/src/gallium/drivers/d3d12?ref_type=heads">DRI stack for the DirectX driver in wslg</a></li>
 			<li>__driDriverGetExtensions_d3d12 seems to be slow; lots of string+vector copy+append calls (and some recursion?) Let's find it's code!</li>
